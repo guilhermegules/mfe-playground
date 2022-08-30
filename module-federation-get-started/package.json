@@ -1,0 +1,17 @@
+{
+  "name": "module-federation-get-started",
+  "private": true,
+  "workspaces": [
+    "modules/host",
+    "modules/remote"
+  ],
+  "scripts": {
+    "start": "yarn start:host & yarn start:remote",
+    "start:host": "cd ./modules/host && yarn start",
+    "start:remote": "cd ./modules/remote && yarn start",
+    "start:all": "yarn workspaces run start",
+    "cleanup": "yarn workspaces run cleanup"
+  },
+  "author": "Guilherme Gules Moreira",
+  "license": "ISC"
+}
