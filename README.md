@@ -12,3 +12,10 @@
 - **Bidirectional-hosts:** When a bundle or Webpack build can work as a host or as a remote. Either consuming other applications or being consumed by others at runtime
 
 <img src="https://cdn-images-1.medium.com/max/1200/1*LYa-AhLhP0-3q2O9liL13w.png" width="300" />
+
+## Web Components
+
+Web components are reusable client-side compoentns based on web standards and supported by all major browsers. With them we have a excelent way of encapsulating functionality from the rest of our code. Not only that, but it's possible reuse them in every web application and web page.
+
+> The primary benefit of Web Components is that we can use them everywhere. With any framework, or even without a framework. - [vuejs.org](https://vuejs.org/guide/extras/web-components.html)
+
