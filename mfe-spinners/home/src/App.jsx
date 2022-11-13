@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
 import "remixicon/fonts/remixicon.css";
 import "./index.scss";
@@ -11,6 +12,8 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <MainLayout />
+    <BrowserRouter>
+      <MainLayout />
+    </BrowserRouter>
   </React.StrictMode>
 );
