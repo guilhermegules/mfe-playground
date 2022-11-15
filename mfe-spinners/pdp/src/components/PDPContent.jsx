@@ -3,6 +3,7 @@ import React from "react";
 import { getProductById } from "home/products";
 import { currency } from "home/currency";
 import { useParams } from "react-router-dom";
+import placeAddToCart from "add_to_cart/placeAddToCart";
 
 const PDPContent = () => {
   const { id } = useParams();
@@ -15,6 +16,14 @@ const PDPContent = () => {
       setProduct(null);
     }
   }, [id]);
+
+  const addToCart = React.useRef(null);
+
+  React.useEffect(() => {
+    if (addToCart.current) {
+      placeAddToCart(addToCart.current, product.id);
+    }
+  }, [product]);
 
   if (!product) return null;
 

@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import "remixicon/fonts/remixicon.css";
 import "./index.scss";
 
-import { MainLayout } from "./layouts/MainLayout";
+import MainLayout from "home/MainLayout";
 
 const container = document.getElementById("app");
 const root = createRoot(container);
