@@ -39,6 +39,7 @@ const PDPContent = () => {
             {currency.format(product.price)}
           </div>
         </div>
+        <div ref={addToCart}></div>
         <p className="mt-10">{product.description}</p>
         <p className="mt-10">{product.longDescription}</p>
       </div>

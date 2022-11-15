@@ -26,7 +26,7 @@ const CartContent = () => {
         <div></div>
         <div></div>
         <div></div>
-        <div className="text-right" id="grand_total">
+        <div className="text-right" id="grand-total">
           {currency.format(items.reduce((a, v) => a + v.quantity * v.price, 0))}
         </div>
       </div>
