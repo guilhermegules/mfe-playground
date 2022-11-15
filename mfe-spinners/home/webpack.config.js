@@ -48,6 +48,7 @@ module.exports = {
         "./Header": "./src/components/Header/Header.jsx",
         "./Footer": "./src/components/Footer/Footer.jsx",
         "./products": "./src/requests/products.js",
+        "./currency": "./src/utils/currency.utils.js",
         "./HomeContent": "./src/components/HomeContent/HomeContent.jsx",
         "./MainLayout": "./src/layouts/MainLayout.jsx",
       },
