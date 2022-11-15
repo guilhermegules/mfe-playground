@@ -1,8 +1,9 @@
 import React from "react";
+
 import { getProducts } from "../../requests/products";
 import Product from "../Product/Product";
 
-export const HomeContent = () => {
+const HomeContent = () => {
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
@@ -19,3 +20,5 @@ export const HomeContent = () => {
     </section>
   );
 };
+
+export default HomeContent;
