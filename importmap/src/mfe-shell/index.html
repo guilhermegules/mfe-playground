@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <script type="importmap">
+      {
+        "imports": {
+          "mfe-pedidos": "http://localhost:8000/src/main.js",
+          "mfe-busca": "http://localhost:8001/src/main.js"
+        }
+      }
+    </script>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/pedidos">Pedidos</a></li>
+      </ul>
+    </nav>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
