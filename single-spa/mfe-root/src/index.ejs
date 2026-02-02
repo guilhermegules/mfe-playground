@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Root Config</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';"
+    />
+    <meta name="importmap-type" use-injector />
+    <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
+    <!-- More info at https://github.com/single-spa/import-map-overrides/blob/main/docs/configuration.md#domain-list -->
+    <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
+
+    <!-- Shared dependencies go into this import map -->
+    <script type="injector-importmap">
+      {
+        "imports": {
+          "react": "https://react.microfrontends.app/deps/npm:react@19.0.0/dev.index.js",
+          "react-dom": "https://react.microfrontends.app/deps/npm:react-dom@19.0.0/dev.index.js",
+          "react-dom/client": "https://react.microfrontends.app/deps/npm:react-dom@19.0.0/dev.client.js",
+          "rxjs": "https://react.microfrontends.app/deps/npm:rxjs@7.8.1/dist/esm5/index.js",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js"
+        },
+        "scopes": {
+          "https://react.microfrontends.app/deps/": {
+            "process": "https://react.microfrontends.app/deps/npm:@jspm/core@2.1.0/nodelibs/browser/process.js",
+            "scheduler": "https://react.microfrontends.app/deps/npm:scheduler@0.25.0/dev.index.js",
+            "tslib": "https://react.microfrontends.app/deps/npm:tslib@2.8.1/tslib.es6.mjs"
+          }
+        }
+      }
+    </script>
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js"
+      as="module"
+    />
+
+    <!-- Add your organization's prod import map URL to this script's src  -->
+    <!-- <script type="injector-importmap" src="/importmap.json"></script> -->
+
+    <% if (isLocal) { %>
+    <script type="injector-importmap">
+      {
+        "imports": {
+          "@usp/root-config": "//localhost:8000/usp-root-config.js",
+          "@usp/mfe-search": "http://localhost:8500/usp-mfe-search.js",
+          "@usp/mfe-order": "http://localhost:8002/usp-mfe-order.js",
+          "@usp/mfe-nav": "http://localhost:8001/usp-mfe-nav.js"
+        }
+      }
+    </script>
+    <% } %>
+
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@2.0.1/lib/import-map-injector.js"></script>
+  </head>
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <main></main>
+    <script>
+      window.importMapInjector.initPromise.then(() => {
+        import("@usp/root-config");
+      });
+    </script>
+    <import-map-overrides-full
+      show-when-local-storage="devtools"
+      dev-libs
+    ></import-map-overrides-full>
+  </body>
+</html>
