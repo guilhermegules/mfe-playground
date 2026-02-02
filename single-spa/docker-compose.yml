@@ -1,0 +1,19 @@
+services:
+  node:
+    build: .
+    container_name: node-terminal
+    volumes:
+      - ./:/workspace
+    stdin_open: true
+    tty: true
+    ports:
+      - "9000:9000"
+      - "8502:8502"
+      - "8501:8501"
+      - "8500:8500"
+      - "5173:5173"
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+      - "8003:8003"
+      - "8004:8004"
